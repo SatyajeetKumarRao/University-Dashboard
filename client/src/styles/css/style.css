@@ -1,0 +1,269 @@
+.loginSignupContainer {
+  color: #666;
+  font-size: 13px;
+  margin: 0;
+}
+.loginSignupContainer * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.loginSignupContainer input,
+.loginSignupContainer textarea,
+.loginSignupContainer select,
+.loginSignupContainer button {
+  color: #333;
+  font-size: 13px;
+}
+.loginSignupContainer p,
+.loginSignupContainer h1,
+.loginSignupContainer h2,
+.loginSignupContainer h3,
+.loginSignupContainer h4,
+.loginSignupContainer h5,
+.loginSignupContainer h6,
+.loginSignupContainer ul {
+  margin: 0;
+}
+.loginSignupContainer img {
+  max-width: 100%;
+}
+.loginSignupContainer ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.loginSignupContainer a:hover {
+  text-decoration: none;
+}
+.loginSignupContainer :focus {
+  outline: none;
+}
+.loginSignupContainer .wrapper {
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+}
+.loginSignupContainer .inner {
+  max-width: 850px;
+  margin: auto;
+  background: #fff;
+  padding: 15px;
+}
+.loginSignupContainer form {
+  border: 1px solid #d3cccc;
+  padding: 62px 65px 64px;
+}
+.loginSignupContainer h3 {
+  text-transform: uppercase;
+  font-size: 35px;
+  text-align: center;
+  margin-bottom: 48px;
+  color: #6d5555;
+  letter-spacing: 3px;
+}
+.loginSignupContainer .form-group {
+  display: flex;
+}
+.loginSignupContainer .form-group .form-wrapper {
+  width: 50%;
+}
+.loginSignupContainer .form-group .form-wrapper:first-child {
+  margin-right: 40px;
+}
+.loginSignupContainer .form-wrapper {
+  margin-bottom: 27px;
+}
+.loginSignupContainer .form-wrapper label {
+  margin-bottom: 10px;
+  display: block;
+  text-transform: uppercase;
+}
+.loginSignupContainer .form-holder {
+  position: relative;
+}
+.loginSignupContainer .form-holder i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 14px;
+  font-size: 17px;
+  color: #999;
+}
+.loginSignupContainer .form-control {
+  border: 1px solid #e6e6e6;
+  display: block;
+  width: 100%;
+  height: 42px;
+  padding: 0 20px 0 46px;
+  color: #424242;
+  font-size: 15px;
+}
+.loginSignupContainer .form-control::-webkit-input-placeholder {
+  font-size: 17px;
+  transform: translateY(5px);
+  color: #999;
+}
+.loginSignupContainer .form-control::-moz-placeholder {
+  font-size: 17px;
+  transform: translateY(5px);
+  color: #999;
+}
+.loginSignupContainer .form-control:-ms-input-placeholder {
+  font-size: 17px;
+  transform: translateY(5px);
+  color: #999;
+}
+.loginSignupContainer .form-control:-moz-placeholder {
+  font-size: 17px;
+  transform: translateY(5px);
+  color: #999;
+}
+.loginSignupContainer .select::after {
+  content: "\f2f9";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 12px;
+  font-size: 15px;
+  color: #999;
+}
+.loginSignupContainer select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-left: 20px;
+}
+.loginSignupContainer select option[value=""][disabled] {
+  display: none;
+}
+.loginSignupContainer button {
+  border: none;
+  float: right;
+  width: 152px;
+  height: 42px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #ea9f48;
+  font-size: 13px;
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  position: relative;
+  -webkit-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.loginSignupContainer button::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #f98805;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 50%;
+  transform-origin: 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.loginSignupContainer button:hover::before, .loginSignupContainer button:active::before, .loginSignupContainer button:focus::before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+.loginSignupContainer .form-end {
+  display: flex;
+  align-items: center;
+  margin-top: 13px;
+}
+.loginSignupContainer .button-holder {
+  width: 50%;
+}
+.loginSignupContainer .checkbox {
+  position: relative;
+  width: 50%;
+  padding-left: 22px;
+}
+.loginSignupContainer .checkbox label {
+  cursor: pointer;
+  color: #999;
+}
+.loginSignupContainer .checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.loginSignupContainer .checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+.loginSignupContainer .checkmark {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  height: 12px;
+  width: 13px;
+  border-radius: 2px;
+  background-color: #ebebeb;
+  border: 1px solid #ccc;
+  color: #000;
+  font-size: 10px;
+  font-weight: bolder;
+}
+.loginSignupContainer .checkmark:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  content: "\f00c";
+}
+@media (max-width: 767px) {
+  .loginSignupContainer .wrapper {
+    display: block;
+  }
+  .loginSignupContainer form {
+    padding: 0;
+    border: none;
+  }
+  .loginSignupContainer .form-group {
+    display: block;
+  }
+  .loginSignupContainer .form-group .form-wrapper {
+    width: 100%;
+  }
+  .loginSignupContainer .form-group .form-wrapper:first-child {
+    margin-right: 0px;
+  }
+  .loginSignupContainer .form-end {
+    display: block;
+  }
+  .loginSignupContainer .checkbox,
+  .loginSignupContainer .button-holder {
+    width: 100%;
+  }
+  .loginSignupContainer .inner {
+    padding: 30px 15px;
+  }
+  .loginSignupContainer button {
+    float: none;
+    margin-top: 30px;
+  }
+  .loginSignupContainer h3 {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
