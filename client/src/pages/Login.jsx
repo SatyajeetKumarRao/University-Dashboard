@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import "../styles/css/style.css";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 
@@ -9,6 +9,7 @@ import { MdAlternateEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
 
 import { Button, useToast } from "@chakra-ui/react";
+import { BASE_URL } from "../utils/vars";
 
 const initialData = {
   isLoading: false,
@@ -34,7 +35,7 @@ const Login = () => {
   const loginUser = async (data) => {
     setFormStateData({ ...formStateData, isLoading: true, isError: false });
 
-    fetch("http://localhost:8080/student/login", {
+    fetch(`${BASE_URL}/student/login`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -60,16 +61,17 @@ const Login = () => {
             isClosable: true,
           });
         } else {
-          console.log(responseData);
+          // console.log(responseData);
 
           localStorage.setItem("accessToken", responseData.accessToken);
-          localStorage.setItem("refreshAccessToken", responseData.refreshToken);
-          localStorage.setItem("username", responseData.data.username);
+          localStorage.setItem("userId", responseData.data.userId);
+          localStorage.setItem("email", responseData.data.email);
 
           setAuth({
             ...auth,
             isAuth: true,
-            username: responseData.data.username,
+            userId: responseData.data.userId,
+            email: responseData.data.email,
             accessToken: responseData.accessToken,
           });
 
@@ -164,6 +166,19 @@ const Login = () => {
               >
                 Login Now
               </Button>
+            </div>
+            <div
+              style={{
+                marginTop: "20px",
+                textAlign: "center",
+                fontSize: "14px",
+                color: "#4299E1",
+                fontWeight: "bold",
+              }}
+            >
+              <Link to={"/signup"}>
+                Don&apos;t have an account? <span>Signup</span>
+              </Link>
             </div>
           </form>
         </div>

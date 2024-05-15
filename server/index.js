@@ -10,7 +10,7 @@ const { marksRouter } = require("./routes/marks.routes");
 
 app.use(express.json());
 app.use(cors());
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 app.get("/", (req, res) => {
   return res.status(200).json({ message: "This is Home Page of server" });

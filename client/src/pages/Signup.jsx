@@ -8,10 +8,11 @@ import { MdOutlineSubject } from "react-icons/md";
 import { CiUser } from "react-icons/ci";
 import { AiTwotoneRocket } from "react-icons/ai";
 
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Button } from "@chakra-ui/react";
 import { useToast } from "@chakra-ui/react";
+import { BASE_URL } from "../utils/vars";
 
 const initialFormData = {
   isLoading: false,
@@ -49,7 +50,7 @@ const Signup = () => {
 
     setFormStateData({ ...formStateData, isLoading: true, isError: false });
 
-    fetch("http://localhost:8080/student/register", {
+    fetch(`${BASE_URL}/student/register`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -109,7 +110,7 @@ const Signup = () => {
   };
 
   const fetchStream = () => {
-    fetch("http://localhost:8080/streams/")
+    fetch(`${BASE_URL}/streams/`)
       .then((response) => response.json())
       .then((responseData) => {
         console.log(responseData);
@@ -119,7 +120,7 @@ const Signup = () => {
   };
 
   const fetchSubject = (streamId) => {
-    fetch(`http://localhost:8080/subjects/stream/${streamId}`)
+    fetch(`${BASE_URL}/subjects/stream/${streamId}`)
       .then((response) => response.json())
       .then((responseData) => {
         console.log(responseData);
@@ -313,6 +314,19 @@ const Signup = () => {
                   <AiTwotoneRocket /> Register Now
                 </Button>
               </div>
+            </div>
+            <div
+              style={{
+                marginTop: "20px",
+                textAlign: "center",
+                fontSize: "14px",
+                color: "#4299E1",
+                fontWeight: "bold",
+              }}
+            >
+              <Link to={"/login"}>
+                Already have an account? <span>Login</span>
+              </Link>
             </div>
           </form>
         </div>

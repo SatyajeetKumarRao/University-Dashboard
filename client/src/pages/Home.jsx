@@ -1,29 +1,69 @@
-import { useContext } from "react";
-import { AuthContext } from "../contexts/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Box, Flex, Text, Image, Heading } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 
-const Home = () => {
-  const { auth } = useContext(AuthContext);
+export function Home() {
+  const [randomText, setRandomText] = useState("");
+  const textOptions = ["Learn", "Study", "Education"];
+  const getRandomText = () => {
+    const randomIndex = Math.floor(Math.random() * textOptions.length);
+    return textOptions[randomIndex];
+  };
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    setRandomText(getRandomText());
+  }, []);
 
   return (
-    <div>
-      <h2>Home Page</h2>
-
-      {auth.isAuth ? (
-        <button
-          onClick={() => {
-            navigate("/users");
-          }}
+    <Box
+      // bgGradient="linear(to-tr, #595732, #3f3f3a)"
+      color="white"
+      overflow="hidden"
+    >
+      <Flex
+        direction={{ base: "column", md: "row" }}
+        ml={{ base: 0, lg: "50px" }}
+        minH="calc(100vh - 8vh)"
+      >
+        <Box
+          width={{ base: "100%", md: "50%" }}
+          p={{ base: 6, lg: 10 }}
+          textAlign={{ base: "center", xl: "start" }}
         >
-          Show Users
-        </button>
-      ) : (
-        ""
-      )}
-    </div>
-  );
-};
+          <Heading size="2xl" color="black">
+            Welcome to RuRux University
+          </Heading>
 
-export { Home };
+          <Text
+            fontWeight={600}
+            color="#ea9f48"
+            opacity="0.3"
+            display={{ base: "none", lg: "block" }}
+            fontSize={{ base: "100px", lg: "160px" }}
+            position="absolute"
+            bottom="0"
+            // left="40%"
+            // transform="translateX(-50%)"
+          >
+            {randomText}
+          </Text>
+        </Box>
+        <Flex
+          justify={{ base: "center", xl: "end" }}
+          width={{ base: "100%", md: "50%" }}
+          // zIndex={2}
+        >
+          <Image
+            src="/banner.png"
+            alt="banner"
+            className="banner-img"
+            boxSize={{ base: "auto", lg: "90vh", xl: "92vh" }}
+            objectFit={"contain"}
+            maxWidth="100%"
+            // maxHeight={{ base: "50vh", lg: "100%" }}
+            overflow="hidden"
+          />
+        </Flex>
+      </Flex>
+    </Box>
+  );
+}

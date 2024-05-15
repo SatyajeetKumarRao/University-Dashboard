@@ -2,8 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
 import { Signup } from "../pages/Signup";
-import { Users } from "../pages/Users";
 import { PrivateRoute } from "./PrivateRoute";
+import { UserDashboard } from "../pages/UserDashboard";
 
 const AllRoutes = () => {
   return (
@@ -11,11 +11,12 @@ const AllRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/signup" element={<Signup />} />
+
       <Route
-        path="/users"
+        path="/dashboard"
         element={
           <PrivateRoute>
-            <Users />
+            <UserDashboard />
           </PrivateRoute>
         }
       />

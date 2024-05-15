@@ -75,6 +75,7 @@ studentsRouter.get(
 
       if (req.role === "admin" || (req.role == "user" && req.userId == id)) {
         const data = await Marks.find({ studentName: id })
+          .populate({ path: "studentName", select: "-password" })
           .populate("stream")
           .populate("subjects");
 
