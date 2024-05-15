@@ -93,7 +93,7 @@ const AdminDashboard = () => {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(responseData);
+        // console.log(responseData);
         setStudentMarksList(responseData.data);
       })
       .catch((error) => console.log(error));
@@ -216,7 +216,7 @@ const AdminDashboard = () => {
   };
 
   return (
-    <Box m={10}>
+    <Box p={{ sm: 5, md: 10 }}>
       <Tabs variant="soft-rounded" colorScheme="green">
         <TabList>
           <Tab>Student List</Tab>

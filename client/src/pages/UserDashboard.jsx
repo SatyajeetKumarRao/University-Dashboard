@@ -69,7 +69,7 @@ const UserDashboard = () => {
   }, []);
 
   return (
-    <Box p={10}>
+    <Box p={{ sm: 5, md: 10 }}>
       <Tabs variant="soft-rounded" colorScheme="green">
         <TabList>
           <Tab>Profile</Tab>
