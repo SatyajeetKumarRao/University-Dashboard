@@ -7,6 +7,7 @@ const { studentsRouter } = require("./routes/students.routes");
 const { streamsRouter } = require("./routes/streams.routes");
 const { subjectRouter } = require("./routes/subjects.routes");
 const { marksRouter } = require("./routes/marks.routes");
+const { keepAlive } = require("./keepalive");
 
 app.use(express.json());
 app.use(cors());
@@ -23,6 +24,6 @@ app.use("/marks", marksRouter);
 
 app.listen(port, async () => {
   await connectDB();
-
+  keepAlive();
   console.log(`Server is running on http://localhost:${port}`);
 });
