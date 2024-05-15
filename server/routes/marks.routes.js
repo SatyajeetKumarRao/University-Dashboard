@@ -32,7 +32,13 @@ marksRouter.get(
       const id = req.userId;
 
       if (req.role === "admin") {
-        const data = await Marks.find().populate("studentName");
+        const data = await Marks.find()
+          .populate({
+            path: "studentName",
+            select: "-password",
+          })
+          .populate("stream")
+          .populate("subjects");
         return res.status(200).json({ data: data });
       } else {
         console.log(id);

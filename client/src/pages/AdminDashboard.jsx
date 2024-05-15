@@ -39,6 +39,7 @@ const AdminDashboard = () => {
   const [studentList, setStudentList] = useState(null);
   const [streamList, setStreamList] = useState(null);
   const [subjectList, setSubjectList] = useState(null);
+  const [studentMarksList, setStudentMarksList] = useState(null);
 
   const toast = useToast();
 
@@ -78,8 +79,22 @@ const AdminDashboard = () => {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(responseData);
+        // console.log(responseData);
         setSubjectList(responseData.data);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const fetchStudentMarksList = () => {
+    fetch(`${BASE_URL}/marks`, {
+      headers: {
+        authorization: `Bearer ${auth.accessToken}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((responseData) => {
+        // console.log(responseData);
+        setStudentMarksList(responseData.data);
       })
       .catch((error) => console.log(error));
   };
@@ -88,6 +103,7 @@ const AdminDashboard = () => {
     fetchStudentList();
     fetchStreamList();
     fetchSubjectList();
+    fetchStudentMarksList();
   }, []);
 
   const streamModal = useDisclosure();
@@ -153,6 +169,39 @@ const AdminDashboard = () => {
         });
 
         fetchSubjectList();
+      })
+      .catch((error) => {
+        console.log(error);
+        toast({
+          title: error,
+          status: "error",
+          duration: 5000,
+          position: "top-right",
+          isClosable: true,
+        });
+      });
+  };
+
+  const deleteMarks = (item) => {
+    fetch(`${BASE_URL}/marks/delete/${item._id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${auth.accessToken}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((responseData) => {
+        console.log(responseData);
+        toast({
+          title: "Marks Deleted Successful",
+          // description: "We've created your account for you.",
+          status: "success",
+          duration: 5000,
+          position: "top-right",
+          isClosable: true,
+        });
+
+        fetchStudentMarksList();
       })
       .catch((error) => {
         console.log(error);
@@ -264,7 +313,7 @@ const AdminDashboard = () => {
             {subjectList && (
               <TableContainer>
                 <Table variant="simple">
-                  <TableCaption>Stream List</TableCaption>
+                  <TableCaption>Subject List</TableCaption>
                   <Thead>
                     <Tr>
                       <Th>Subject Id</Th>
@@ -311,7 +360,56 @@ const AdminDashboard = () => {
             )}
           </TabPanel>
           <TabPanel>
-            <p>four!</p>
+            {studentMarksList && (
+              <TableContainer>
+                <Table variant="simple">
+                  <TableCaption>Marks List</TableCaption>
+                  <Thead>
+                    <Tr>
+                      <Th>Name</Th>
+                      <Th>Stream</Th>
+                      <Th>Subject</Th>
+                      <Th>Marks</Th>
+                      <Th>Edit</Th>
+                      <Th>Delete</Th>
+                    </Tr>
+                  </Thead>
+                  <Tbody>
+                    {studentMarksList.map((item) => {
+                      return (
+                        <Tr key={item._id}>
+                          <Td>{item.studentName.name}</Td>
+                          <Td>{item.stream.name}</Td>
+                          <Td>{item.subjects.name}</Td>
+                          <Td>{item.marks}</Td>
+                          <Td
+                            onClick={() => {
+                              editStream(item);
+                            }}
+                          >
+                            <FiEdit3 />
+                          </Td>
+                          <Td
+                            onClick={() => {
+                              deleteMarks(item);
+                            }}
+                          >
+                            <MdOutlineDelete />
+                          </Td>
+                        </Tr>
+                      );
+                    })}
+                  </Tbody>
+                  {/* <Tfoot>
+                    <Tr>
+                      <Th>To convert</Th>
+                      <Th>into</Th>
+                      <Th isNumeric>multiply by</Th>
+                    </Tr>
+                  </Tfoot> */}
+                </Table>
+              </TableContainer>
+            )}
           </TabPanel>
         </TabPanels>
       </Tabs>
