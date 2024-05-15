@@ -90,7 +90,7 @@ const UserDashboard = () => {
                         Email
                       </Heading>
                       <Text pt="2" fontSize="sm">
-                        {userDetails.email}
+                        {userDetails?.email}
                       </Text>
                     </Box>
                     <Box>
@@ -98,7 +98,7 @@ const UserDashboard = () => {
                         Stream
                       </Heading>
                       <Text pt="2" fontSize="sm">
-                        {userDetails.stream.name}
+                        {userDetails?.stream?.name}
                       </Text>
                     </Box>
                     <Box>
@@ -106,7 +106,7 @@ const UserDashboard = () => {
                         Subject
                       </Heading>
                       <Text pt="2" fontSize="sm">
-                        {userDetails.subject.name}
+                        {userDetails?.subject?.name}
                       </Text>
                     </Box>
                   </Stack>
@@ -130,9 +130,9 @@ const UserDashboard = () => {
                     {userReport.map((item) => {
                       return (
                         <Tr key={item._id}>
-                          <Td>{item.stream.name}</Td>
-                          <Td>{item.subjects.name}</Td>
-                          <Td isNumeric>{item.marks}</Td>
+                          <Td>{item?.stream?.name}</Td>
+                          <Td>{item?.subjects?.name}</Td>
+                          <Td isNumeric>{item?.marks}</Td>
                         </Tr>
                       );
                     })}

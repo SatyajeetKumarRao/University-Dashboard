@@ -93,7 +93,7 @@ const AdminDashboard = () => {
     })
       .then((response) => response.json())
       .then((responseData) => {
-        // console.log(responseData);
+        console.log(responseData);
         setStudentMarksList(responseData.data);
       })
       .catch((error) => console.log(error));
@@ -242,21 +242,14 @@ const AdminDashboard = () => {
                     {studentList.map((item) => {
                       return (
                         <Tr key={item._id}>
-                          <Td>{item.name}</Td>
-                          <Td>{item.email}</Td>
-                          <Td>{item.stream.name}</Td>
-                          <Td>{item.subject.name}</Td>
+                          <Td>{item?.name}</Td>
+                          <Td>{item?.email}</Td>
+                          <Td>{item?.stream?.name}</Td>
+                          <Td>{item?.subject?.name}</Td>
                         </Tr>
                       );
                     })}
                   </Tbody>
-                  {/* <Tfoot>
-                    <Tr>
-                      <Th>To convert</Th>
-                      <Th>into</Th>
-                      <Th isNumeric>multiply by</Th>
-                    </Tr>
-                  </Tfoot> */}
                 </Table>
               </TableContainer>
             )}
@@ -278,8 +271,8 @@ const AdminDashboard = () => {
                     {streamList.map((item) => {
                       return (
                         <Tr key={item._id}>
-                          <Td>{item._id}</Td>
-                          <Td>{item.name}</Td>
+                          <Td>{item?._id}</Td>
+                          <Td>{item?.name}</Td>
                           <Td
                             onClick={() => {
                               editStream(item);
@@ -298,13 +291,6 @@ const AdminDashboard = () => {
                       );
                     })}
                   </Tbody>
-                  {/* <Tfoot>
-                    <Tr>
-                      <Th>To convert</Th>
-                      <Th>into</Th>
-                      <Th isNumeric>multiply by</Th>
-                    </Tr>
-                  </Tfoot> */}
                 </Table>
               </TableContainer>
             )}
@@ -327,9 +313,9 @@ const AdminDashboard = () => {
                     {subjectList.map((item) => {
                       return (
                         <Tr key={item._id}>
-                          <Td>{item._id}</Td>
-                          <Td>{item.name}</Td>
-                          <Td>{item.stream.name}</Td>
+                          <Td>{item?._id}</Td>
+                          <Td>{item?.name}</Td>
+                          <Td>{item?.stream?.name}</Td>
                           <Td
                             onClick={() => {
                               editStream(item);
@@ -348,13 +334,6 @@ const AdminDashboard = () => {
                       );
                     })}
                   </Tbody>
-                  {/* <Tfoot>
-                    <Tr>
-                      <Th>To convert</Th>
-                      <Th>into</Th>
-                      <Th isNumeric>multiply by</Th>
-                    </Tr>
-                  </Tfoot> */}
                 </Table>
               </TableContainer>
             )}
@@ -378,10 +357,10 @@ const AdminDashboard = () => {
                     {studentMarksList.map((item) => {
                       return (
                         <Tr key={item._id}>
-                          <Td>{item.studentName.name}</Td>
-                          <Td>{item.stream.name}</Td>
-                          <Td>{item.subjects.name}</Td>
-                          <Td>{item.marks}</Td>
+                          <Td>{item?.studentName?.name}</Td>
+                          <Td>{item?.stream?.name}</Td>
+                          <Td>{item?.subjects?.name}</Td>
+                          <Td>{item?.marks}</Td>
                           <Td
                             onClick={() => {
                               editStream(item);
@@ -400,13 +379,6 @@ const AdminDashboard = () => {
                       );
                     })}
                   </Tbody>
-                  {/* <Tfoot>
-                    <Tr>
-                      <Th>To convert</Th>
-                      <Th>into</Th>
-                      <Th isNumeric>multiply by</Th>
-                    </Tr>
-                  </Tfoot> */}
                 </Table>
               </TableContainer>
             )}
