@@ -28,7 +28,7 @@ subjectRouter.post(
 
 subjectRouter.get("/", async (req, res) => {
   try {
-    const data = await Subjects.find();
+    const data = await Subjects.find().populate("stream");
     return res.status(200).json({ data: data });
   } catch (error) {
     console.log(error.message);
