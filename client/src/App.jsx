@@ -13,6 +13,7 @@ function App() {
       const accessToken = localStorage.getItem("accessToken");
       const userId = localStorage.getItem("userId");
       const email = localStorage.getItem("email");
+      const role = localStorage.getItem("role");
 
       if (accessToken && userId && email) {
         setAuth({
@@ -20,6 +21,7 @@ function App() {
           userId: userId,
           email: email,
           accessToken: accessToken,
+          role: role,
         });
       }
     }

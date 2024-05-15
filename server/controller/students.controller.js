@@ -37,6 +37,7 @@ const studentLogin = async (req, res) => {
           data: {
             userId: student._id,
             email: student.email,
+            role: student.role,
           },
           message: "User logged in successfully",
         });

@@ -4,6 +4,7 @@ import { Login } from "../pages/Login";
 import { Signup } from "../pages/Signup";
 import { PrivateRoute } from "./PrivateRoute";
 import { UserDashboard } from "../pages/UserDashboard";
+import { AdminDashboard } from "../pages/AdminDashboard";
 
 const AllRoutes = () => {
   return (
@@ -17,6 +18,14 @@ const AllRoutes = () => {
         element={
           <PrivateRoute>
             <UserDashboard />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/adminDashboard"
+        element={
+          <PrivateRoute>
+            <AdminDashboard />
           </PrivateRoute>
         }
       />

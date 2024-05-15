@@ -66,12 +66,14 @@ const Login = () => {
           localStorage.setItem("accessToken", responseData.accessToken);
           localStorage.setItem("userId", responseData.data.userId);
           localStorage.setItem("email", responseData.data.email);
+          localStorage.setItem("role", responseData.data.role);
 
           setAuth({
             ...auth,
             isAuth: true,
             userId: responseData.data.userId,
             email: responseData.data.email,
+            role: responseData.data.role,
             accessToken: responseData.accessToken,
           });
 

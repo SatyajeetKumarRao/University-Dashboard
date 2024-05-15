@@ -7,6 +7,7 @@ export const AuthContextProvider = ({ children }) => {
     isAuth: false,
     userId: "",
     email: "",
+    role: "",
     accessToken: "",
   });
 

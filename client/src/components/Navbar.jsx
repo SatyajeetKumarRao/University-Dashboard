@@ -12,7 +12,7 @@ const NavBar = () => {
   const toast = useToast();
 
   const handleLogout = () => {
-    fetch(`${BASE_URL}/users/logout`, {
+    fetch(`${BASE_URL}/student/logout`, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -66,10 +66,16 @@ const NavBar = () => {
       to: "/",
       displayText: "Home",
     },
-    auth.isAuth
+    auth.isAuth && auth.role == "user"
       ? {
           to: "/dashboard",
           displayText: "Dashboard",
+        }
+      : null,
+    auth.isAuth && auth.role == "admin"
+      ? {
+          to: "/adminDashboard",
+          displayText: "AdminDashboard",
         }
       : null,
   ].filter((link) => link !== null);
