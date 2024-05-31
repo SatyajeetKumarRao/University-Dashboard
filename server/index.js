@@ -24,6 +24,6 @@ app.use("/marks", marksRouter);
 
 app.listen(port, async () => {
   await connectDB();
-  keepAlive();
+  // keepAlive();
   console.log(`Server is running on http://localhost:${port}`);
 });
